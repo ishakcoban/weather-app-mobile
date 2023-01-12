@@ -31,10 +31,16 @@ class bottomNavigationBar extends StatelessWidget {
               Navigator.pushNamed(context, '/home');
               break;
             case 1:
-              Navigator.pushNamed(context, '/postAd');
+              Navigator.pushNamed(context, '/weather');
               break;
             case 2:
-              Navigator.pushNamed(context, '/ads');
+              Navigator.pushNamed(context, '/addClothes');
+              break;
+            case 3:
+              Navigator.pushNamed(context, '/clothes');
+              break;
+            case 4:
+              Navigator.pushNamed(context, '/profile');
               break;
             default:
           }
@@ -49,31 +55,72 @@ class bottomNavigationBar extends StatelessWidget {
         //selectedIconTheme: IconThemeData(color: Colors.white),
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,
+            icon: Image.asset(
+              ModalRoute.of(context)?.settings.name == '/home'
+                  ? 'assets/images/homeActive.png'
+                  : 'assets/images/home.png',
+              width: 30,
+            ) /*Icon(Icons.home,
                 size: 30,
                 color: ModalRoute.of(context)?.settings.name == '/home'
                     ? blackColor
-                    : greyColor),
+                    : greyColor)*/
+            ,
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.add_circle_outline_rounded,
-              size: 35,
-              color: ModalRoute.of(context)?.settings.name == '/postAd'
-                  ? blackColor
-                  : greyColor,
-            ),
-            label: 'Post Ad',
+            icon: Image.asset(
+              ModalRoute.of(context)?.settings.name == '/weather'
+                  ? 'assets/images/weatherActive.png'
+                  : 'assets/images/weather.png',
+              width: 35,
+            ) /*Icon(Icons.home,
+                size: 30,
+                color: ModalRoute.of(context)?.settings.name == '/home'
+                    ? blackColor
+                    : greyColor)*/
+            ,
+            label: 'Weather',
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              ModalRoute.of(context)?.settings.name == '/ads'
-                  ? 'assets/images/adsBlack.png'
-                  : 'assets/images/adsWhite.png',
+              'assets/images/plus.png',
+              width: 35,
+            ) /*Icon(Icons.home,
+                size: 30,
+                color: ModalRoute.of(context)?.settings.name == '/home'
+                    ? blackColor
+                    : greyColor)*/
+            ,
+            label: 'Add',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset(
+              ModalRoute.of(context)?.settings.name == '/clothes'
+                  ? 'assets/images/clothes-rackActive.png'
+                  : 'assets/images/clothes-rack.png',
+              width: 35,
+            ) /*Icon(Icons.home,
+                size: 30,
+                color: ModalRoute.of(context)?.settings.name == '/home'
+                    ? blackColor
+                    : greyColor)*/
+            ,
+            label: 'Clothes',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset(
+              ModalRoute.of(context)?.settings.name == '/profile'
+                  ? 'assets/images/userActive.png'
+                  : 'assets/images/user.png',
               width: 30,
-            ),
-            label: 'Ads',
+            ) /*Icon(Icons.home,
+                size: 30,
+                color: ModalRoute.of(context)?.settings.name == '/home'
+                    ? blackColor
+                    : greyColor)*/
+            ,
+            label: 'Profile',
           ),
         ],
       ),
