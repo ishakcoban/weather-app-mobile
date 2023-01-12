@@ -14,7 +14,7 @@ void main() {
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/register',
+      initialRoute: '/profile',
       routes: {
         '/': (_) => Login(),
         '/register': (_) => Register(),
