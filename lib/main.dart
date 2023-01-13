@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import './screens/login.dart';
 import './screens/register.dart';
 import './screens/home.dart';
@@ -6,7 +7,6 @@ import './screens/profile.dart';
 import './screens/addClothes.dart';
 import './screens/clothes.dart';
 import './screens/weather.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +17,7 @@ Future main() async {
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/register',
       routes: {
         '/': (_) => Login(),
         '/register': (_) => Register(),

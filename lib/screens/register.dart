@@ -10,6 +10,11 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final nameController = TextEditingController();
+  final surnameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final passwordAgainController = TextEditingController();
   late FocusNode myFocusNode = FocusNode();
 
   void initState() {
@@ -70,7 +75,39 @@ class _RegisterState extends State<Register> {
                                     width: 2, color: blackColor), //<-- SEE HERE
                               ),
                               border: OutlineInputBorder(),
-                              labelText: 'Username',
+                              labelText: 'Name',
+                              labelStyle: TextStyle(
+                                  fontWeight: myFocusNode.hasFocus
+                                      ? FontWeight.normal
+                                      : FontWeight.bold,
+                                  color: myFocusNode.hasFocus
+                                      ? blackColor
+                                      : Color.fromARGB(111, 0, 0, 0))),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 35),
+                        child: TextField(
+                          obscureText: false,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: whiteColor,
+                              contentPadding: EdgeInsets.only(
+                                  left: 20, top: 20, bottom: 20),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(width: 2, color: Colors.black),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(35)),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(35)),
+                                borderSide: BorderSide(
+                                    width: 2, color: blackColor), //<-- SEE HERE
+                              ),
+                              border: OutlineInputBorder(),
+                              labelText: 'Surname',
                               labelStyle: TextStyle(
                                   fontWeight: myFocusNode.hasFocus
                                       ? FontWeight.normal
