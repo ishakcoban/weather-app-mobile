@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/globals/colors.dart';
 import '../widgets/backgroundTemp.dart';
 
 class Register extends StatefulWidget {
@@ -53,12 +54,12 @@ class _RegisterState extends State<Register> {
                           obscureText: false,
                           decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.white,
+                              fillColor: whiteColor,
                               contentPadding: EdgeInsets.only(
                                   left: 20, top: 20, bottom: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(width: 2, color: Colors.black),
+                                    BorderSide(width: 2, color: blackColor),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                               ),
@@ -66,8 +67,7 @@ class _RegisterState extends State<Register> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                                 borderSide: BorderSide(
-                                    width: 2,
-                                    color: Colors.black), //<-- SEE HERE
+                                    width: 2, color: blackColor), //<-- SEE HERE
                               ),
                               border: OutlineInputBorder(),
                               labelText: 'Username',
@@ -76,7 +76,7 @@ class _RegisterState extends State<Register> {
                                       ? FontWeight.normal
                                       : FontWeight.bold,
                                   color: myFocusNode.hasFocus
-                                      ? Colors.black
+                                      ? blackColor
                                       : Color.fromARGB(111, 0, 0, 0))),
                         ),
                       ),
@@ -86,7 +86,7 @@ class _RegisterState extends State<Register> {
                           obscureText: false,
                           decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.white,
+                              fillColor: whiteColor,
                               contentPadding: EdgeInsets.only(
                                   left: 20, top: 20, bottom: 20),
                               focusedBorder: OutlineInputBorder(
@@ -99,8 +99,7 @@ class _RegisterState extends State<Register> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                                 borderSide: BorderSide(
-                                    width: 2,
-                                    color: Colors.black), //<-- SEE HERE
+                                    width: 2, color: blackColor), //<-- SEE HERE
                               ),
                               border: OutlineInputBorder(),
                               labelText: 'Email',
@@ -109,7 +108,7 @@ class _RegisterState extends State<Register> {
                                       ? FontWeight.normal
                                       : FontWeight.bold,
                                   color: myFocusNode.hasFocus
-                                      ? Colors.black
+                                      ? blackColor
                                       : Color.fromARGB(111, 0, 0, 0))),
                         ),
                       ),
@@ -119,12 +118,12 @@ class _RegisterState extends State<Register> {
                           obscureText: true,
                           decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.white,
+                              fillColor: whiteColor,
                               contentPadding: EdgeInsets.only(
                                   left: 20, top: 20, bottom: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(width: 2, color: Colors.black),
+                                    BorderSide(width: 2, color: blackColor),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                               ),
@@ -132,8 +131,7 @@ class _RegisterState extends State<Register> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                                 borderSide: BorderSide(
-                                    width: 2,
-                                    color: Colors.black), //<-- SEE HERE
+                                    width: 2, color: blackColor), //<-- SEE HERE
                               ),
                               border: OutlineInputBorder(),
                               labelText: 'Password',
@@ -142,7 +140,7 @@ class _RegisterState extends State<Register> {
                                       ? FontWeight.normal
                                       : FontWeight.bold,
                                   color: myFocusNode.hasFocus
-                                      ? Colors.black
+                                      ? blackColor
                                       : Color.fromARGB(111, 0, 0, 0))),
                         ),
                       ),
@@ -152,10 +150,10 @@ class _RegisterState extends State<Register> {
                           obscureText: true,
                           decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.white,
+                              fillColor: whiteColor,
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(width: 2, color: Colors.black),
+                                    BorderSide(width: 2, color: blackColor),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                               ),
@@ -163,8 +161,7 @@ class _RegisterState extends State<Register> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                                 borderSide: BorderSide(
-                                    width: 2,
-                                    color: Colors.black), //<-- SEE HERE
+                                    width: 2, color: blackColor), //<-- SEE HERE
                               ),
                               border: OutlineInputBorder(),
                               labelText: 'Password(Again)',
@@ -175,7 +172,7 @@ class _RegisterState extends State<Register> {
                                       ? FontWeight.normal
                                       : FontWeight.bold,
                                   color: myFocusNode.hasFocus
-                                      ? Colors.black
+                                      ? blackColor
                                       : Color.fromARGB(111, 0, 0, 0))),
                         ),
                       ),
@@ -189,10 +186,7 @@ class _RegisterState extends State<Register> {
                               gradient: LinearGradient(
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color.fromRGBO(246, 235, 136, 1),
-                                    Color.fromRGBO(255, 221, 13, 1)
-                                  ]),
+                                  colors: [yellowColorLight, yellowColorDark]),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(35))),
                           child: Text(

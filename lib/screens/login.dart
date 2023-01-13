@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/globals/colors.dart';
 import '../widgets/backgroundTemp.dart';
 
 class Login extends StatefulWidget {
@@ -54,12 +55,12 @@ class _LoginState extends State<Login> {
                           obscureText: false,
                           decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.white,
+                              fillColor: whiteColor,
                               contentPadding: EdgeInsets.only(
                                   left: 20, top: 20, bottom: 20),
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(width: 2, color: Colors.black),
+                                    BorderSide(width: 2, color: blackColor),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                               ),
@@ -67,8 +68,7 @@ class _LoginState extends State<Login> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                                 borderSide: BorderSide(
-                                    width: 2,
-                                    color: Colors.black), //<-- SEE HERE
+                                    width: 2, color: blackColor), //<-- SEE HERE
                               ),
                               border: OutlineInputBorder(),
                               labelText: 'Email',
@@ -77,7 +77,7 @@ class _LoginState extends State<Login> {
                                       ? FontWeight.normal
                                       : FontWeight.bold,
                                   color: myFocusNode.hasFocus
-                                      ? Colors.black
+                                      ? blackColor
                                       : Color.fromARGB(111, 0, 0, 0))),
                         ),
                       ),
@@ -87,10 +87,10 @@ class _LoginState extends State<Login> {
                           obscureText: true,
                           decoration: InputDecoration(
                               filled: true,
-                              fillColor: Colors.white,
+                              fillColor: whiteColor,
                               focusedBorder: OutlineInputBorder(
                                 borderSide:
-                                    BorderSide(width: 2, color: Colors.black),
+                                    BorderSide(width: 2, color: blackColor),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                               ),
@@ -98,8 +98,7 @@ class _LoginState extends State<Login> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(35)),
                                 borderSide: BorderSide(
-                                    width: 2,
-                                    color: Colors.black), //<-- SEE HERE
+                                    width: 2, color: blackColor), //<-- SEE HERE
                               ),
                               border: OutlineInputBorder(),
                               labelText: 'Password',
@@ -110,7 +109,7 @@ class _LoginState extends State<Login> {
                                       ? FontWeight.normal
                                       : FontWeight.bold,
                                   color: myFocusNode.hasFocus
-                                      ? Colors.black
+                                      ? blackColor
                                       : Color.fromARGB(111, 0, 0, 0))),
                         ),
                       ),
@@ -124,10 +123,7 @@ class _LoginState extends State<Login> {
                               gradient: LinearGradient(
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color.fromRGBO(246, 235, 136, 1),
-                                    Color.fromRGBO(255, 221, 13, 1)
-                                  ]),
+                                  colors: [yellowColorLight, yellowColorDark]),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(35))),
                           child: Text(
@@ -146,7 +142,7 @@ class _LoginState extends State<Login> {
                         child: Text(
                           'Sign up!',
                           style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                              color: whiteColor, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
