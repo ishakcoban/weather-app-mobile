@@ -6,15 +6,18 @@ import './screens/profile.dart';
 import './screens/addClothes.dart';
 import './screens/clothes.dart';
 import './screens/weather.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/profile',
+      initialRoute: '/',
       routes: {
         '/': (_) => Login(),
         '/register': (_) => Register(),
