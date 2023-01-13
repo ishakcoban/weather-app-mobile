@@ -63,15 +63,15 @@ flutter:
   assets:
     - assets/images/bgLoginRegister.png
     - assets/images/bgLoginRegister2.png
-    - assets/images/home.png
-    - assets/images/homeActive.png
-    - assets/images/weather.png
-    - assets/images/weatherActive.png
-    - assets/images/plus.png
-    - assets/images/clothes-rack.png
-    - assets/images/clothes-rackActive.png
-    - assets/images/user.png
-    - assets/images/userActive.png
+    - assets/images/bottomNavigationBar/home.png
+    - assets/images/bottomNavigationBar/homeActive.png
+    - assets/images/bottomNavigationBar/weather.png
+    - assets/images/bottomNavigationBar/weatherActive.png
+    - assets/images/bottomNavigationBar/plus.png
+    - assets/images/bottomNavigationBar/clothes.png
+    - assets/images/bottomNavigationBar/clothesActive.png
+    - assets/images/bottomNavigationBar/user.png
+    - assets/images/bottomNavigationBar/userActive.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

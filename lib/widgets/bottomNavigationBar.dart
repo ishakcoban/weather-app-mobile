@@ -57,8 +57,8 @@ class bottomNavigationBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Image.asset(
               ModalRoute.of(context)?.settings.name == '/home'
-                  ? 'assets/images/homeActive.png'
-                  : 'assets/images/home.png',
+                  ? 'assets/images/bottomNavigationBar/homeActive.png'
+                  : 'assets/images/bottomNavigationBar/home.png',
               width: 30,
             ) /*Icon(Icons.home,
                 size: 30,
@@ -71,8 +71,8 @@ class bottomNavigationBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Image.asset(
               ModalRoute.of(context)?.settings.name == '/weather'
-                  ? 'assets/images/weatherActive.png'
-                  : 'assets/images/weather.png',
+                  ? 'assets/images/bottomNavigationBar/weatherActive.png'
+                  : 'assets/images/bottomNavigationBar/weather.png',
               width: 35,
             ) /*Icon(Icons.home,
                 size: 30,
@@ -84,7 +84,7 @@ class bottomNavigationBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Image.asset(
-              'assets/images/plus.png',
+              'assets/images/bottomNavigationBar/plus.png',
               width: 35,
             ) /*Icon(Icons.home,
                 size: 30,
@@ -97,8 +97,8 @@ class bottomNavigationBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Image.asset(
               ModalRoute.of(context)?.settings.name == '/clothes'
-                  ? 'assets/images/clothes-rackActive.png'
-                  : 'assets/images/clothes-rack.png',
+                  ? 'assets/images/bottomNavigationBar/clothesActive.png'
+                  : 'assets/images/bottomNavigationBar/clothes.png',
               width: 35,
             ) /*Icon(Icons.home,
                 size: 30,
@@ -111,8 +111,8 @@ class bottomNavigationBar extends StatelessWidget {
           BottomNavigationBarItem(
             icon: Image.asset(
               ModalRoute.of(context)?.settings.name == '/profile'
-                  ? 'assets/images/userActive.png'
-                  : 'assets/images/user.png',
+                  ? 'assets/images/bottomNavigationBar/userActive.png'
+                  : 'assets/images/bottomNavigationBar/user.png',
               width: 30,
             ) /*Icon(Icons.home,
                 size: 30,

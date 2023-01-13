@@ -27,7 +27,11 @@ class _ProfileState extends State<Profile> {
             currentFocus.unfocus();
           }
         },
-        child: SingleChildScrollView(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [Container()],
+          ),
+        ),
       ),
     );
   }
