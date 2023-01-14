@@ -33,7 +33,7 @@ class ProfileInfo extends StatelessWidget {
           ),
         ),
         Container(
-          width: 65,
+          width: 30,
           height: 1,
           color: blackColor,
         ),
@@ -46,7 +46,7 @@ class ProfileInfo extends StatelessWidget {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left: 20),
+          margin: EdgeInsets.only(left: 14),
           child: Text(
             value,
             style: TextStyle(

@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../widgets/appbar.dart';
 import '../widgets/bottomNavigationBar.dart';
 import '../globals/colors.dart';
 import '../widgets/profileInfo.dart';
+import '../providers/auth.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -12,6 +15,26 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  var userInfo = {};
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getInfo();
+  }
+
+  void getInfo() async {
+    var id = await Provider.of<Auth>(context, listen: false).getId();
+    var collection = FirebaseFirestore.instance.collection('users');
+    var docSnapshot = await collection.doc(id).get();
+    if (docSnapshot.exists) {
+      setState(() {
+        userInfo = docSnapshot.data()!;
+      });
+      ;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +67,7 @@ class _ProfileState extends State<Profile> {
                 margin: EdgeInsets.only(top: 2, bottom: 30),
                 alignment: Alignment.center,
                 child: Text(
-                  'Name Surname',
+                  "${userInfo['name']} ${userInfo['surname']}",
                   style: TextStyle(
                       color: blackColor, fontFamily: 'Courgette', fontSize: 25),
                 ),
@@ -61,15 +84,15 @@ class _ProfileState extends State<Profile> {
                 ),
                 width: MediaQuery.of(context).size.width * 9 / 10,
                 child: Column(children: [
-                  ProfileInfo('Name', 'abc'),
+                  ProfileInfo('Name', userInfo['name']),
                   SizedBox(
                     height: 25,
                   ),
-                  ProfileInfo('Surname', 'abc'),
+                  ProfileInfo('Surname', userInfo['surname']),
                   SizedBox(
                     height: 25,
                   ),
-                  ProfileInfo('Email', 'abc@gmail.com'),
+                  ProfileInfo('Email', userInfo['email']),
                   SizedBox(
                     height: 25,
                   ),

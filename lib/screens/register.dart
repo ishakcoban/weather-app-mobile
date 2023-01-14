@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/globals/colors.dart';
 import '../widgets/backgroundTemp.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -16,6 +19,7 @@ class _RegisterState extends State<Register> {
   final passwordController = TextEditingController();
   final passwordAgainController = TextEditingController();
   late FocusNode myFocusNode = FocusNode();
+  bool errorMessage = false;
 
   void initState() {
     super.initState();
@@ -54,9 +58,10 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 100),
+                        margin: EdgeInsets.only(top: 60),
                         child: TextField(
                           obscureText: false,
+                          controller: nameController,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: whiteColor,
@@ -89,6 +94,7 @@ class _RegisterState extends State<Register> {
                         margin: EdgeInsets.only(top: 35),
                         child: TextField(
                           obscureText: false,
+                          controller: surnameController,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: whiteColor,
@@ -121,6 +127,7 @@ class _RegisterState extends State<Register> {
                         margin: EdgeInsets.only(top: 35),
                         child: TextField(
                           obscureText: false,
+                          controller: emailController,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: whiteColor,
@@ -153,6 +160,7 @@ class _RegisterState extends State<Register> {
                         margin: EdgeInsets.only(top: 35),
                         child: TextField(
                           obscureText: true,
+                          controller: passwordController,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: whiteColor,
@@ -182,9 +190,11 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 35, bottom: 45),
+                        margin: EdgeInsets.only(
+                            top: 35, bottom: errorMessage ? 0 : 45),
                         child: TextField(
                           obscureText: true,
+                          controller: passwordAgainController,
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: whiteColor,
@@ -213,8 +223,32 @@ class _RegisterState extends State<Register> {
                                       : Color.fromARGB(111, 0, 0, 0))),
                         ),
                       ),
+                      if (errorMessage)
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 35),
+                          alignment: Alignment.center,
+                          width: MediaQuery.of(context).size.width * 6 / 10,
+                          padding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              gradient: LinearGradient(
+                                colors: [warningColorLight, warningColorDark],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              )),
+                          child: Text(
+                            'Invalid email or password!',
+                            style: TextStyle(
+                                color: whiteColor,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () async {
+                          await createUser();
+                        },
                         child: Container(
                           width: MediaQuery.of(context).size.width * 6 / 10,
                           height: MediaQuery.of(context).size.height * 1 / 15,
@@ -243,5 +277,42 @@ class _RegisterState extends State<Register> {
             ),
           ),
         ));
+  }
+
+  Future<void> createUser() async {
+    if (nameController.text.length != 0 &&
+        surnameController.text.length != 0 &&
+        emailController.text.length != 0 &&
+        passwordController.text.length != 0 &&
+        passwordAgainController.text.length != 0 &&
+        passwordController.text != passwordAgainController.text) {
+      setState(() {
+        errorMessage = true;
+      });
+    } else {
+      var user = await FirebaseFirestore.instance
+          .collection('users')
+          .where('email', isEqualTo: emailController.text)
+          .get();
+
+      if (user.size != 0) {
+        final document = FirebaseFirestore.instance.collection('users').doc();
+
+        var json = {
+          'name': nameController.text,
+          'surname': surnameController.text,
+          'email': emailController.text,
+          'password': passwordController.text
+        };
+
+        await document.set(json);
+
+        Navigator.pushNamed(context, '/login');
+      } else {
+        setState(() {
+          errorMessage = true;
+        });
+      }
+    }
   }
 }

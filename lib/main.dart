@@ -7,6 +7,8 @@ import './screens/profile.dart';
 import './screens/addClothes.dart';
 import './screens/clothes.dart';
 import './screens/weather.dart';
+import 'package:provider/provider.dart';
+import './providers/auth.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,17 +18,21 @@ Future main() async {
 
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/register',
-      routes: {
-        '/': (_) => Login(),
-        '/register': (_) => Register(),
-        '/home': (_) => Home(),
-        '/addClothes': (_) => AddClothes(),
-        '/profile': (_) => Profile(),
-        '/clothes': (_) => Clothes(),
-        '/weather': (_) => Weather(),
-      },
-    );
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider<Auth>(create: (_) => Auth()),
+        ],
+        child: MaterialApp(
+          initialRoute: '/login',
+          routes: {
+            '/login': (_) => Login(),
+            '/register': (_) => Register(),
+            '/home': (_) => Home(),
+            '/addClothes': (_) => AddClothes(),
+            '/profile': (_) => Profile(),
+            '/clothes': (_) => Clothes(),
+            '/weather': (_) => Weather(),
+          },
+        ));
   }
 }
