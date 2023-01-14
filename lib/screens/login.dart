@@ -206,7 +206,7 @@ class _LoginState extends State<Login> {
       String userId = user.docs[0].id;
       await Provider.of<Auth>(context, listen: false).setId(userId);
       print(user.docs[0].id);
-      Navigator.pushNamed(context, '/profile');
+      Navigator.pushNamed(context, '/home');
     } else {
       setState(() {
         errorMessage = true;

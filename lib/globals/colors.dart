@@ -5,6 +5,7 @@ const whiteColor = Colors.white;
 const warningColorLight = Color.fromRGBO(246, 182, 136, 1);
 const warningColorDark = Color.fromRGBO(255, 57, 13, 1);
 const greyColor = Color.fromRGBO(224, 224, 224, 1);
+const greyishColor = Color.fromRGBO(217, 217, 217, 1);
 const blueColorLightOpacity = Color.fromRGBO(22, 110, 220, 39 / 100);
 const blueColorLight = Color.fromRGBO(98, 171, 255, 1);
 const blueColorDark = Color.fromRGBO(22, 110, 220, 1);

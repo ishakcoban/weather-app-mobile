@@ -77,6 +77,11 @@ flutter:
     - assets/images/bottomNavigationBar/user.png
     - assets/images/bottomNavigationBar/userActive.png
     - assets/images/profileTemp.png
+    - assets/images/weatherStatus/temperature.png
+    - assets/images/weatherStatus/pressure.png
+    - assets/images/weatherStatus/wind.png
+    - assets/images/weatherStatus/humidity.png
+    - assets/images/homeCloudy.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
