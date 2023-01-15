@@ -83,6 +83,12 @@ flutter:
     - assets/images/weatherStatus/wind.png
     - assets/images/weatherStatus/humidity.png
     - assets/images/homeCloudy.png
+    - assets/images/weatherGeneralStatus/blizzard.png
+    - assets/images/weatherGeneralStatus/cloudy.png
+    - assets/images/weatherGeneralStatus/fog.png
+    - assets/images/weatherGeneralStatus/partlycloudy.png
+    - assets/images/weatherGeneralStatus/rainy.png
+    - assets/images/weatherGeneralStatus/sunny.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
