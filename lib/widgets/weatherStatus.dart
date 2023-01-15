@@ -6,7 +6,7 @@ class WeatherStatus extends StatelessWidget {
 
   final String path;
   final String status;
-  final String value;
+  final double value;
   final double width;
 
   @override
@@ -56,7 +56,7 @@ class WeatherStatus extends StatelessWidget {
                 ),
                 Container(
                   child: Text(
-                    value,
+                    '${value}',
                     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
                   ),
                 )
