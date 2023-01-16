@@ -9,5 +9,6 @@ const greyishColor = Color.fromRGBO(217, 217, 217, 1);
 const blueColorLightOpacity = Color.fromRGBO(22, 110, 220, 39 / 100);
 const blueColorLight = Color.fromRGBO(98, 171, 255, 1);
 const blueColorDark = Color.fromRGBO(22, 110, 220, 1);
+const purpleColorDark = Color.fromRGBO(91, 77, 190, 1);
 const yellowColorLight = Color.fromRGBO(246, 235, 136, 1);
 const yellowColorDark = Color.fromRGBO(255, 221, 13, 1);

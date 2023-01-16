@@ -9,6 +9,7 @@ import './screens/clothes.dart';
 import './screens/weather.dart';
 import 'package:provider/provider.dart';
 import './providers/auth.dart';
+import './providers/dropdownValues.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           ChangeNotifierProvider<Auth>(create: (_) => Auth()),
+          ChangeNotifierProvider<DropdownValues>(
+              create: (_) => DropdownValues()),
         ],
         child: MaterialApp(
           initialRoute: '/weather',

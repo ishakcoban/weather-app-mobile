@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:localstore/localstore.dart';
 
 class Auth with ChangeNotifier {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
