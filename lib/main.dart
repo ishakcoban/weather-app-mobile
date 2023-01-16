@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider<Auth>(create: (_) => Auth()),
         ],
         child: MaterialApp(
-          initialRoute: '/login',
+          initialRoute: '/weather',
           routes: {
             '/login': (_) => Login(),
             '/register': (_) => Register(),

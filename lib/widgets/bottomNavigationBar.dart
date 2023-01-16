@@ -5,10 +5,6 @@ import '../screens/home.dart';
 class bottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    void changeRoute() {
-      Navigator.pushNamed(context, '/home');
-    }
-
     return Container(
       height: 65,
       decoration: BoxDecoration(
