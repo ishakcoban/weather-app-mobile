@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/widgets/dailyWeather/dailyWeatherStatusBar.dart';
 import '../../globals/colors.dart';
+import '../../services/http.dart';
+import 'dart:convert' as convert;
 
 class DailyWeather extends StatelessWidget {
   final Map<String, dynamic> map;
   final int date;
-  const DailyWeather(this.map, this.date);
+  final dynamic map2;
+  const DailyWeather(this.map, this.date, this.map2);
 
   @override
   Widget build(BuildContext context) {
+    Future<List<dynamic>> fetchClothes() async {
+      var resp;
+      try {
+        print("asdsasdssadsadsad");
+        var response = await createHttpRequest(
+            '/clothesStatus/' + date.toString(), 'GET', {}, context);
+        var result = convert.jsonDecode(response.body);
+        return convert.jsonDecode(result['clothesStatus']);
+      } catch (err) {
+        print("Uncaught error: $err");
+      }
+
+      return resp;
+    }
+
     return Container(
       width: double.infinity,
       margin: EdgeInsets.only(top: 30),
@@ -19,12 +37,14 @@ class DailyWeather extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(top: 35),
               width: MediaQuery.of(context).size.width * 8 / 10,
-              height: 125,
+              height: ModalRoute.of(context)?.settings.name == '/clothes'
+                  ? 160
+                  : 125,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [blueColorDark, Colors.transparent]),
+                      colors: [blueColorLight, Colors.transparent]),
                   borderRadius: BorderRadius.all(Radius.circular(18))),
             ),
             Container(
@@ -35,7 +55,7 @@ class DailyWeather extends StatelessWidget {
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [blueColorDark, Colors.transparent]),
+                      colors: [blueColorLight, Colors.transparent]),
                   borderRadius: BorderRadius.all(Radius.circular(20))),
             )
           ],
@@ -84,10 +104,41 @@ class DailyWeather extends StatelessWidget {
               ),
             ])),
         Container(
-          margin: EdgeInsets.only(top: 125),
-          child: DailyWeatherStatusBar(map['temperature'], map['wind'],
-              map['pressure'], map['humidity']),
-        )
+          margin: EdgeInsets.only(
+              top: ModalRoute.of(context)?.settings.name == '/clothes'
+                  ? 150
+                  : 125),
+          child: map2 == 'clothes'
+              ? FutureBuilder<List<dynamic>>(
+                  future: fetchClothes(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return DailyWeatherStatusBar(
+                          snapshot.data![0],
+                          snapshot.data![1],
+                          snapshot.data![2],
+                          snapshot.data![3]);
+                    } else {
+                      return Container();
+                    }
+                  })
+              : DailyWeatherStatusBar(map['temperature'], map['wind'],
+                  map['pressure'], map['humidity']),
+        ),
+        ModalRoute.of(context)?.settings.name == '/clothes'
+            ? Container(
+                margin: EdgeInsets.only(top: 120),
+                child: Text(
+                  date == 0
+                      ? 'recommended clothes for today'
+                      : 'clothes which are the most preferred',
+                  style: TextStyle(
+                      color: whiteColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ),
+              )
+            : Container()
       ]),
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../widgets/appbar.dart';
-import '../widgets/bottomNavigationBar.dart';
-import '../globals/colors.dart';
-import './home/dropdownMenu.dart';
-import '../services/http.dart';
+import '../../../widgets/appbar.dart';
+import '../../../widgets/bottomNavigationBar.dart';
+import '../../../globals/colors.dart';
+import './dropdownMenu.dart';
+import '../../../services/http.dart';
 import 'dart:convert' as convert;
 
 class AddClothes extends StatefulWidget {

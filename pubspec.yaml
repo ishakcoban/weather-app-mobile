@@ -92,6 +92,34 @@ flutter:
     - assets/images/weatherGeneralStatus/rainy.png
     - assets/images/weatherGeneralStatus/sunny.png
     - assets/images/bgLoginRegister2White.png
+    - assets/images/clothImages/1163.jpg
+    - assets/images/clothImages/1542.jpg
+    - assets/images/clothImages/1828.jpg
+    - assets/images/clothImages/2314.jpg
+    - assets/images/clothImages/2580.jpg
+    - assets/images/clothImages/33766.jpg
+    - assets/images/clothImages/33924.jpg
+    - assets/images/clothImages/34056.jpg
+    - assets/images/clothImages/34101.jpg
+    - assets/images/clothImages/34518.jpg
+    - assets/images/clothImages/34564.jpg
+    - assets/images/clothImages/34595.jpg
+    - assets/images/clothImages/34641.jpg
+    - assets/images/clothImages/36782.jpg
+    - assets/images/clothImages/37938.jpg
+    - assets/images/clothImages/37984.jpg
+    - assets/images/clothImages/38185.jpg
+    - assets/images/clothImages/38308.jpg
+    - assets/images/clothImages/38505.jpg
+    - assets/images/clothImages/38561.jpg
+    - assets/images/clothImages/38648.jpg
+    - assets/images/clothImages/38717.jpg
+    - assets/images/clothImages/38905.jpg
+    - assets/images/clothImages/38931.jpg
+    - assets/images/clothImages/38996.jpg
+    - assets/images/clothImages/38998.jpg
+    - assets/images/clothImages/39027.jpg
+    - assets/images/clothImages/40198.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

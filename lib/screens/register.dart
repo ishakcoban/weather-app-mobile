@@ -285,34 +285,22 @@ class _RegisterState extends State<Register> {
         emailController.text.length != 0 &&
         passwordController.text.length != 0 &&
         passwordAgainController.text.length != 0 &&
-        passwordController.text != passwordAgainController.text) {
+        passwordController.text == passwordAgainController.text) {
+      Navigator.pushNamed(context, '/login');
+      final document = FirebaseFirestore.instance.collection('users').doc();
+
+      var json = {
+        'name': nameController.text,
+        'surname': surnameController.text,
+        'email': emailController.text,
+        'password': passwordController.text
+      };
+
+      await document.set(json);
+    } else {
       setState(() {
         errorMessage = true;
       });
-    } else {
-      var user = await FirebaseFirestore.instance
-          .collection('users')
-          .where('email', isEqualTo: emailController.text)
-          .get();
-
-      if (user.size != 0) {
-        final document = FirebaseFirestore.instance.collection('users').doc();
-
-        var json = {
-          'name': nameController.text,
-          'surname': surnameController.text,
-          'email': emailController.text,
-          'password': passwordController.text
-        };
-
-        await document.set(json);
-
-        Navigator.pushNamed(context, '/login');
-      } else {
-        setState(() {
-          errorMessage = true;
-        });
-      }
     }
   }
 }

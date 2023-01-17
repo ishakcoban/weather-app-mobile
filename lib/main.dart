@@ -4,7 +4,7 @@ import './screens/login.dart';
 import './screens/register.dart';
 import './screens/home.dart';
 import './screens/profile.dart';
-import './screens/addClothes.dart';
+import 'screens/home/addClothes.dart';
 import './screens/clothes.dart';
 import './screens/weather.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
               create: (_) => DropdownValues()),
         ],
         child: MaterialApp(
-          initialRoute: '/weather',
+          initialRoute: '/login',
           routes: {
             '/login': (_) => Login(),
             '/register': (_) => Register(),

@@ -17,16 +17,26 @@ class EachWeatherStatus extends StatelessWidget {
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
                 color: whiteColor,
-                borderRadius: BorderRadius.all(Radius.circular(35))),
-            child: Image.asset(
-              'assets/images/weatherStatus/' + imagePath + '.png',
-              width: 35,
-            )),
+                borderRadius: BorderRadius.all(Radius.circular(
+                    ModalRoute.of(context)?.settings.name == '/clothes'
+                        ? 45
+                        : 35))),
+            child: ModalRoute.of(context)?.settings.name == '/clothes'
+                ? Image.asset(
+                    'assets/images/clothImages/' + imagePath + '.jpg',
+                    width: 50,
+                  )
+                : Image.asset(
+                    'assets/images/weatherStatus/' + imagePath + '.png',
+                    width: 35,
+                  )),
         color: Colors.black,
       ),
       Container(
         alignment: Alignment.center,
-        child: Text(value.toInt().toString()),
+        child: Text(ModalRoute.of(context)?.settings.name == '/clothes'
+            ? ''
+            : value.toInt().toString()),
         decoration: BoxDecoration(
             border: Border.all(color: blackColor),
             color: whiteColor,

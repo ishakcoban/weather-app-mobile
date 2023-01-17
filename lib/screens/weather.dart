@@ -59,7 +59,8 @@ class _WeatherState extends State<Weather> {
                         if (snapshot.hasData) {
                           return Column(children: [
                             for (var i in snapshot.data!)
-                              new DailyWeather(convert.jsonDecode(i), count++)
+                              new DailyWeather(
+                                  convert.jsonDecode(i), count++, 'home')
                           ]);
                         } else {
                           return Container();
